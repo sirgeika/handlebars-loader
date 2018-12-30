@@ -7,6 +7,8 @@ var assign = require("object-assign");
 var fastreplace = require('./lib/fastreplace');
 var findNestedRequires = require('./lib/findNestedRequires');
 
+var foundHelpers = {};
+
 function versionCheck(hbCompiler, hbRuntime) {
   return hbCompiler.COMPILER_REVISION === (hbRuntime["default"] || hbRuntime).COMPILER_REVISION;
 }
@@ -53,7 +55,6 @@ module.exports = function(source) {
   }
 
   var foundPartials = {};
-  var foundHelpers = {};
   var foundUnclearStuff = {};
   var knownHelpers = {};
 
